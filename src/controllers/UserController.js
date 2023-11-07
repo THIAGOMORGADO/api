@@ -67,10 +67,6 @@ const UserControllers = {
         message: "user not found",
       })
     }
-
-    return res.status(201).json({
-      message: "user deleted!",
-    })
   },
 }
 module.exports = UserControllers

@@ -2,9 +2,12 @@ const express = require("express")
 const cors = require("cors")
 
 const UserController = require("./controllers/UserController")
+const ContractsController = require("./controllers/ContractsController")
+const clientsControllers = require("./controllers/ClientsControllers")
+const CompaniesController = require("./controllers/CompaniesControllers")
 
 const db = require("./config/db")
-const ContractsController = require("./controllers/ContractsController")
+
 PORT = 3333
 
 const app = express()
@@ -17,7 +20,17 @@ app.post("/accounts", UserController.create)
 
 // Routes is contracts
 app.get("/contracts", ContractsController.show)
+app.get("/contracts/:id", ContractsController.index)
 app.post("/contracts", ContractsController.create)
+app.delete("/contracts/:id", ContractsController.deleted)
+
+// Routes is Clients
+
+app.get("/users", clientsControllers.index)
+
+// Routes is Companies
+
+app.get("/companies", CompaniesController.index)
 
 app.listen(PORT, () => {
   console.log("listening on port", PORT)

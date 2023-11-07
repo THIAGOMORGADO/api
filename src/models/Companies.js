@@ -1,33 +1,25 @@
 const { DataTypes } = require("sequelize")
 const db = require("../config/db")
 
-const User = db.define("users", {
+const Companies = db.define("companies", {
   id: {
     type: DataTypes.STRING,
     primaryKey: true,
   },
-  name: {
+  nome_empresa: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
+  CNPJ: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  password: {
+  inscricao_estadual: {
     type: DataTypes.STRING,
-    allowNull: false,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
     allowNull: false,
   },
 })
 
-//User.sync({alter: true})
+Companies.sync({ alter: true })
 
-module.exports = User
+module.exports = Companies

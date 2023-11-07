@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize")
 const db = require("../config/db")
 
-const User = db.define("users", {
+const Clients = db.define("clients", {
   id: {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -14,9 +14,30 @@ const User = db.define("users", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  password: {
+  cpf: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  rg: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  naturalidae: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  sexo: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  estadoCivil: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
   },
   createdAt: {
     type: DataTypes.DATE,
@@ -28,6 +49,6 @@ const User = db.define("users", {
   },
 })
 
-//User.sync({alter: true})
+Clients.sync({ alter: true })
 
-module.exports = User
+module.exports = Clients
