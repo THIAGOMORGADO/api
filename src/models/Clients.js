@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize")
+
 const db = require("../config/db")
 
 const Clients = db.define("clients", {
@@ -49,6 +50,6 @@ const Clients = db.define("clients", {
   },
 })
 
-Clients.sync({ alter: true })
+// Clients.sync({ alter: true })
 
 module.exports = Clients

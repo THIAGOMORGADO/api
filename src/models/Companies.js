@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize")
 const db = require("../config/db")
+const Clients = require("./Clients")
 
 const Companies = db.define("companies", {
   id: {
@@ -20,6 +21,10 @@ const Companies = db.define("companies", {
   },
 })
 
-Companies.sync({ alter: true })
+Clients.hasMany(Companies) // Clientes tem muitos Companies
+Companies.belongsTo(Clients) // contatrato pertence  a um user
+
+
+// Companies.sync({ alter: true })
 
 module.exports = Companies
